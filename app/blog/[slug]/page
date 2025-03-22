@@ -1,0 +1,186 @@
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+import { ArrowLeft, Calendar, Clock, Share2, ThumbsUp } from "lucide-react"
+
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  // This would normally fetch the blog post data based on the slug
+  // For this example, we'll use hardcoded data
+  const post = {
+    title: "The Art of Effective Data Visualization",
+    date: "March 15, 2023",
+    readTime: "8 min read",
+    category: "Data Visualization",
+    image: "/placeholder.svg?height=400&width=800",
+    content: `
+      <p>Data visualization is a powerful tool for communicating complex information in a clear and intuitive way. When done effectively, visualizations can reveal patterns, trends, and insights that might otherwise remain hidden in raw data.</p>
+      
+      <h2>Why Data Visualization Matters</h2>
+      
+      <p>Humans are visual creatures. We process visual information much faster than text or numbers. A well-designed chart or graph can convey complex relationships and patterns at a glance, making it easier for stakeholders to understand and act on data-driven insights.</p>
+      
+      <p>Effective data visualization serves several key purposes:</p>
+      
+      <ul>
+        <li>It simplifies complex information</li>
+        <li>It highlights important trends and patterns</li>
+        <li>It makes data more accessible to non-technical audiences</li>
+        <li>It supports data-driven decision making</li>
+      </ul>
+      
+      <h2>Principles of Effective Data Visualization</h2>
+      
+      <p>Creating impactful visualizations isn't just about making things look pretty. It requires a thoughtful approach based on established principles:</p>
+      
+      <h3>1. Know Your Audience</h3>
+      
+      <p>Different audiences have different needs and levels of data literacy. A visualization for data scientists might include more technical details, while one for executives should focus on high-level insights and actionable takeaways.</p>
+      
+      <h3>2. Choose the Right Chart Type</h3>
+      
+      <p>Each type of visualization serves a specific purpose:</p>
+      
+      <ul>
+        <li>Bar charts are excellent for comparing categorical data</li>
+        <li>Line charts show trends over time</li>
+        <li>Scatter plots reveal relationships between variables</li>
+        <li>Pie charts (used sparingly) show composition of a whole</li>
+      </ul>
+      
+      <h3>3. Simplify</h3>
+      
+      <p>Remove unnecessary elements that don't contribute to understanding. This includes excessive gridlines, decorative elements, and 3D effects that can distort perception.</p>
+      
+      <h3>4. Use Color Purposefully</h3>
+      
+      <p>Color should be used to highlight important information, not just for decoration. Be mindful of color blindness and use accessible color palettes.</p>
+      
+      <h3>5. Label Clearly</h3>
+      
+      <p>Include clear titles, axis labels, and legends. Don't make your audience work to understand what they're looking at.</p>
+      
+      <h2>Tools for Data Visualization</h2>
+      
+      <p>There are many tools available for creating effective visualizations:</p>
+      
+      <ul>
+        <li>Tableau: Powerful drag-and-drop interface for creating interactive dashboards</li>
+        <li>Power BI: Microsoft's business intelligence tool with strong integration with Excel</li>
+        <li>Python libraries: Matplotlib, Seaborn, and Plotly for programmatic visualization</li>
+        <li>R with ggplot2: Statistical programming with elegant visualization capabilities</li>
+        <li>D3.js: JavaScript library for creating custom, interactive visualizations on the web</li>
+      </ul>
+      
+      <h2>Common Pitfalls to Avoid</h2>
+      
+      <p>Even experienced analysts can fall into these traps:</p>
+      
+      <ul>
+        <li>Starting y-axes at values other than zero (creating misleading comparisons)</li>
+        <li>Using pie charts with too many categories</li>
+        <li>Overloading visualizations with too much information</li>
+        <li>Using inappropriate chart types for the data</li>
+        <li>Neglecting accessibility considerations for color-blind users</li>
+      </ul>
+      
+      <h2>Conclusion</h2>
+      
+      <p>Effective data visualization is both an art and a science. By following these principles and avoiding common pitfalls, you can create visualizations that not only look good but also effectively communicate your data's story and drive better decision-making.</p>
+      
+      <p>Remember that the goal of data visualization isn't to create the most complex or impressive-looking charts, but to communicate insights clearly and effectively. When in doubt, simplify and focus on what matters most to your audience.</p>
+    `,
+    relatedPosts: [
+      {
+        title: "SQL Query Optimization Techniques",
+        slug: "sql-optimization",
+        image: "/placeholder.svg?height=200&width=400",
+      },
+      {
+        title: "Python for Data Analysis: Pandas Deep Dive",
+        slug: "pandas-deep-dive",
+        image: "/placeholder.svg?height=200&width=400",
+      },
+    ],
+  }
+
+  return (
+    <div className="container mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-8">
+          <Link href="/blog">
+            <Button variant="ghost" className="pl-0 mb-4">
+              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
+            </Button>
+          </Link>
+
+          <Badge className="mb-4">{post.category}</Badge>
+          <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+
+          <div className="flex items-center gap-4 text-muted-foreground mb-6">
+            <div className="flex items-center">
+              <Calendar className="mr-2 h-4 w-4" />
+              <span>{post.date}</span>
+            </div>
+            <div className="flex items-center">
+              <Clock className="mr-2 h-4 w-4" />
+              <span>{post.readTime}</span>
+            </div>
+          </div>
+
+          <Image
+            src={post.image || "/placeholder.svg"}
+            alt={post.title}
+            width={800}
+            height={400}
+            className="rounded-lg object-cover w-full mb-8"
+          />
+
+          <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: post.content }} />
+
+          <div className="flex items-center justify-between mt-8 pt-8 border-t">
+            <Button variant="outline" className="gap-2">
+              <ThumbsUp className="h-4 w-4" /> Like this article
+            </Button>
+            <Button variant="outline" className="gap-2">
+              <Share2 className="h-4 w-4" /> Share
+            </Button>
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {post.relatedPosts.map((relatedPost, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-0">
+                  <Link href={`/blog/${relatedPost.slug}`}>
+                    <Image
+                      alt={relatedPost.title}
+                      className="w-full h-48 object-cover"
+                      height={200}
+                      width={400}
+                      src={relatedPost.image || "/placeholder.svg"}
+                    />
+                  </Link>
+                  <div className="p-6">
+                    <h3 className="font-bold text-xl mb-2">
+                      <Link href={`/blog/${relatedPost.slug}`}>{relatedPost.title}</Link>
+                    </h3>
+                    <Link href={`/blog/${relatedPost.slug}`}>
+                      <Button variant="outline" className="w-full">
+                        Read More
+                      </Button>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
