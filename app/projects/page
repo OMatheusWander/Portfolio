@@ -1,0 +1,245 @@
+import Link from "next/link"
+import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Search } from "lucide-react"
+
+export default function ProjectsPage() {
+  return (
+    <div className="container mx-auto px-4 py-12">
+      <div className="space-y-8">
+        <div className="space-y-4">
+          <h1 className="text-4xl font-bold">Projects</h1>
+          <p className="text-xl text-muted-foreground">A showcase of my data analysis and visualization projects.</p>
+        </div>
+
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-2">
+            <Button variant="outline" className="rounded-full">
+              All
+            </Button>
+            <Button variant="ghost" className="rounded-full">
+              Data Visualization
+            </Button>
+            <Button variant="ghost" className="rounded-full">
+              Machine Learning
+            </Button>
+            <Button variant="ghost" className="rounded-full">
+              Dashboard
+            </Button>
+          </div>
+          <div className="relative">
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Input type="search" placeholder="Search projects..." className="w-full rounded-full pl-8 md:w-[300px]" />
+          </div>
+        </div>
+
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <Card className="overflow-hidden">
+            <CardContent className="p-0">
+              <Link href="/projects/retail-sales-dashboard">
+                <Image
+                  alt="Retail Sales Dashboard Project"
+                  className="w-full h-60 object-cover"
+                  height={240}
+                  width={400}
+                  src="/placeholder.svg?height=240&width=400"
+                />
+              </Link>
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Badge>Data Visualization</Badge>
+                    <Badge variant="outline">Tableau</Badge>
+                  </div>
+                  <h3 className="font-bold text-xl">
+                    <Link href="/projects/retail-sales-dashboard">Retail Sales Dashboard</Link>
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Interactive dashboard analyzing retail sales trends across multiple regions, identifying key growth
+                    opportunities.
+                  </p>
+                </div>
+                <Link href="/projects/retail-sales-dashboard">
+                  <Button variant="outline" className="w-full">
+                    View Project
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="overflow-hidden">
+            <CardContent className="p-0">
+              <Link href="/projects/customer-segmentation">
+                <Image
+                  alt="Customer Segmentation Project"
+                  className="w-full h-60 object-cover"
+                  height={240}
+                  width={400}
+                  src="/placeholder.svg?height=240&width=400"
+                />
+              </Link>
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Badge>Machine Learning</Badge>
+                    <Badge variant="outline">Python</Badge>
+                  </div>
+                  <h3 className="font-bold text-xl">
+                    <Link href="/projects/customer-segmentation">Customer Segmentation Analysis</Link>
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Using clustering algorithms to identify distinct customer segments for targeted marketing
+                    strategies.
+                  </p>
+                </div>
+                <Link href="/projects/customer-segmentation">
+                  <Button variant="outline" className="w-full">
+                    View Project
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="overflow-hidden">
+            <CardContent className="p-0">
+              <Link href="/projects/sales-forecasting">
+                <Image
+                  alt="Sales Forecasting Project"
+                  className="w-full h-60 object-cover"
+                  height={240}
+                  width={400}
+                  src="/placeholder.svg?height=240&width=400"
+                />
+              </Link>
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Badge>Time Series Analysis</Badge>
+                    <Badge variant="outline">R</Badge>
+                  </div>
+                  <h3 className="font-bold text-xl">
+                    <Link href="/projects/sales-forecasting">Sales Forecasting Model</Link>
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Developing time series models to predict future sales with 92% accuracy, enabling better inventory
+                    management.
+                  </p>
+                </div>
+                <Link href="/projects/sales-forecasting">
+                  <Button variant="outline" className="w-full">
+                    View Project
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="overflow-hidden">
+            <CardContent className="p-0">
+              <Link href="/projects/healthcare-analytics">
+                <Image
+                  alt="Healthcare Analytics Project"
+                  className="w-full h-60 object-cover"
+                  height={240}
+                  width={400}
+                  src="/placeholder.svg?height=240&width=400"
+                />
+              </Link>
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Badge>Dashboard</Badge>
+                    <Badge variant="outline">Power BI</Badge>
+                  </div>
+                  <h3 className="font-bold text-xl">
+                    <Link href="/projects/healthcare-analytics">Healthcare Performance Analytics</Link>
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Comprehensive dashboard tracking key performance indicators for a healthcare provider network.
+                  </p>
+                </div>
+                <Link href="/projects/healthcare-analytics">
+                  <Button variant="outline" className="w-full">
+                    View Project
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="overflow-hidden">
+            <CardContent className="p-0">
+              <Link href="/projects/supply-chain-optimization">
+                <Image
+                  alt="Supply Chain Optimization Project"
+                  className="w-full h-60 object-cover"
+                  height={240}
+                  width={400}
+                  src="/placeholder.svg?height=240&width=400"
+                />
+              </Link>
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Badge>Optimization</Badge>
+                    <Badge variant="outline">Python</Badge>
+                  </div>
+                  <h3 className="font-bold text-xl">
+                    <Link href="/projects/supply-chain-optimization">Supply Chain Optimization</Link>
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Using linear programming to optimize distribution network, reducing logistics costs by 18%.
+                  </p>
+                </div>
+                <Link href="/projects/supply-chain-optimization">
+                  <Button variant="outline" className="w-full">
+                    View Project
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="overflow-hidden">
+            <CardContent className="p-0">
+              <Link href="/projects/sentiment-analysis">
+                <Image
+                  alt="Sentiment Analysis Project"
+                  className="w-full h-60 object-cover"
+                  height={240}
+                  width={400}
+                  src="/placeholder.svg?height=240&width=400"
+                />
+              </Link>
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Badge>NLP</Badge>
+                    <Badge variant="outline">Python</Badge>
+                  </div>
+                  <h3 className="font-bold text-xl">
+                    <Link href="/projects/sentiment-analysis">Customer Review Sentiment Analysis</Link>
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Natural language processing model to analyze customer feedback and identify improvement areas.
+                  </p>
+                </div>
+                <Link href="/projects/sentiment-analysis">
+                  <Button variant="outline" className="w-full">
+                    View Project
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  )
+}
+
